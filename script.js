@@ -1,31 +1,31 @@
-// script.js – Full storefront with cart & AI chat placeholder
+﻿// script.js â€“ Full storefront with cart & AI chat placeholder
 
-// ---------- DỮ LIỆU SẢN PHẨM (có thể thay bằng API thực) ----------
+// ---------- Dá»® LIá»†U Sáº¢N PHáº¨M (cÃ³ thá»ƒ thay báº±ng API thá»±c) ----------
 const products = [
   {
     id: 1,
-    name: "Vữa Xây Dựng Victory",
+    name: "Vá»¯a XÃ¢y Dá»±ng Victory",
     img: "https://vuaxoatuong.vn/pic/SystemWebsite/logo_6355.jpg",
-    desc: "Vữa chất lượng cao, gia công nhanh, phù hợp cho mọi công trình.",
+    desc: "Vá»¯a cháº¥t lÆ°á»£ng cao, gia cÃ´ng nhanh, phÃ¹ há»£p cho má»i cÃ´ng trÃ¬nh.",
     price: 150000 // VND
   },
   {
     id: 2,
-    name: "Vữa Xây Dựng Premium",
+    name: "Vá»¯a XÃ¢y Dá»±ng Premium",
     img: "https://vuaxoatuong.vn/pic/SystemWebsite/logo_6355.jpg",
-    desc: "Vữa hạt mịn, độ bám tốt, chịu thời tiết tốt.",
+    desc: "Vá»¯a háº¡t má»‹n, Ä‘á»™ bÃ¡m tá»‘t, chá»‹u thá»i tiáº¿t tá»‘t.",
     price: 200000
   },
   {
     id: 3,
-    name: "Keo Dán Gạch Victory",
+    name: "Keo DÃ¡n Gáº¡ch Victory",
     img: "https://vuaxoatuong.vn/pic/SystemWebsite/logo_6355.jpg",
-    desc: "Keo dán gạch nhanh khô, độ bám mạnh.",
+    desc: "Keo dÃ¡n gáº¡ch nhanh khÃ´, Ä‘á»™ bÃ¡m máº¡nh.",
     price: 120000
   }
 ];
 
-// ---------- GIỎ HÀNG ----------
+// ---------- GIá»Ž HÃ€NG ----------
 let cart = [];
 
 function addToCart(product) {
@@ -52,7 +52,7 @@ function updateCartUI() {
   const totalPrice = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
 
   countEl.textContent = totalQty;
-  totalEl.textContent = totalPrice.toLocaleString("vi-VN") + " VND";
+  totalEl.textContent = totalPrice.toLocaleString("vi-VN") + "â€¯VND";
 
   // render item list
   itemsEl.innerHTML = "";
@@ -60,8 +60,8 @@ function updateCartUI() {
     const li = document.createElement("li");
     li.innerHTML = `
       <span>${item.name} x ${item.qty}</span>
-      <span>${(item.price * item.qty).toLocaleString('vi-VN')} VND</span>
-      <button class="remove-btn" data-id="${item.id}">✖️</button>
+      <span>${(item.price * item.qty).toLocaleString('vi-VN')}â€¯VND</span>
+      <button class="remove-btn" data-id="${item.id}">âœ–ï¸</button>
     `;
     itemsEl.appendChild(li);
   });
@@ -81,7 +81,7 @@ function toggleCart(show) {
   else overlay.classList.add("hidden");
 }
 
-// ---------- RENDER SẢN PHẨM ----------
+// ---------- RENDER Sáº¢N PHáº¨M ----------
 function renderProducts() {
   const container = document.getElementById("products");
   const noData = document.getElementById("no-data");
@@ -101,14 +101,14 @@ function renderProducts() {
       <div class="product-info">
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
-        <p class="price">${p.price.toLocaleString('vi-VN')} VND</p>
-        <button class="add-to-cart" data-id="${p.id}">🛒 Thêm vào giỏ</button>
+        <p class="price">${p.price.toLocaleString('vi-VN')}â€¯VND</p>
+        <button class="add-to-cart" data-id="${p.id}">ðŸ›’ ThÃªm vÃ o giá»</button>
       </div>
     `;
     container.appendChild(card);
   });
 
-  // add‑to‑cart listeners
+  // addâ€‘toâ€‘cart listeners
   document.querySelectorAll('.add-to-cart').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = Number(btn.dataset.id);
@@ -135,9 +135,9 @@ function initChat() {
   function sendMessage() {
     const msg = chatInput.value.trim();
     if (!msg) return;
-    appendMessage("Bạn", msg);
+    appendMessage("Báº¡n", msg);
     // Placeholder AI: echo with a short delay
-    setTimeout(() => appendMessage("AI", `Bạn nói: ${msg}`), 400);
+    setTimeout(() => appendMessage("AI", `Báº¡n nÃ³i: ${msg}`), 400);
     chatInput.value = "";
   }
 
@@ -158,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("cartToggle").addEventListener("click", () => toggleCart(true));
   document.getElementById("closeCart").addEventListener("click", () => toggleCart(false));
   document.getElementById("checkoutBtn").addEventListener("click", () => {
-    alert(`Bạn có ${cart.length} mặt hàng trong giỏ, tổng cộng ${cart.reduce((s,i)=>s+i.price*i.qty,0).toLocaleString('vi-VN')} VND.\n(Thanh toán chưa được tích hợp)`);
+    alert(`Báº¡n cÃ³ ${cart.length} máº·t hÃ ng trong giá», tá»•ng cá»™ng ${cart.reduce((s,i)=>s+i.price*i.qty,0).toLocaleString('vi-VN')}â€¯VND.\n(Thanh toÃ¡n chÆ°a Ä‘Æ°á»£c tÃ­ch há»£p)`);
   });
 });
+
