@@ -1,4 +1,4 @@
-/* ===== General layout ===== */
+﻿/* ===== General layout ===== */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -200,3 +200,4 @@ header p {
 }
 /* ===== Misc ===== */
 .hidden { display: none; }
+
