@@ -3,24 +3,43 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cá»­a hÃ ng BÃ¡n Vá»¯a</title>
+    <title>Cửa hàng Vữa Victory</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
-        <h1>Cá»­a hÃ ng BÃ¡n Vá»¯a</h1>
+        <h1>🏗️ Cửa hàng Vữa Victory</h1>
+        <p>Vữa, keo và phụ kiện xây dựng chất lượng cao</p>
+        <button id="cartToggle" class="cart-toggle" aria-label="Mở giỏ hàng">🛒 Giỏ hàng (<span id="cartCount">0</span>)</button>
     </header>
 
-    <section id="products" class="grid"></section>
+    <main>
+        <section id="products" class="grid"></section>
+        <p id="no-data" class="hidden">Hiện chưa có sản phẩm nào.</p>
+    </main>
 
-    <!-- Simple AI chat placeholder -->
-    <button id="chatBtn" class="chat-btn">ðŸ—¨ï¸ Há»i AI</button>
-    <div id="chatModal" class="chat-modal hidden">
-        <div class="chat-content">
-            <div id="chatLog" class="chat-log"></div>
-            <input type="text" id="chatInput" placeholder="Nháº­p cÃ¢u há»i..." />
-            <button id="sendBtn">Gá»­i</button>
-            <button id="closeBtn" class="close-btn">âœ–ï¸ ÄÃ³ng</button>
+    <!-- Giỏ hàng overlay -->
+    <div id="cartOverlay" class="overlay hidden" aria-modal="true" role="dialog">
+        <div class="overlay-content">
+            <h2>Giỏ hàng</h2>
+            <ul id="cartItems" class="cart-items"></ul>
+            <p class="total">Tổng cộng: <strong id="cartTotal">0 VND</strong></p>
+            <button id="checkoutBtn" class="checkout-btn">Thanh toán</button>
+            <button id="closeCart" class="close-btn">✖️ Đóng</button>
+        </div>
+    </div>
+
+    <!-- Chatbox overlay -->
+    <button id="chatBtn" class="chat-btn" aria-label="Mở hộp chat AI">💬</button>
+    <div id="chatOverlay" class="overlay hidden" role="dialog" aria-modal="true">
+        <div class="overlay-content">
+            <h2>Chat AI</h2>
+            <div id="chatLog" class="chat-log" aria-live="polite"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Nhập câu hỏi..." aria-label="Tin nhắn" />
+                <button id="sendBtn" class="send-btn">Gửi</button>
+                <button id="closeChat" class="close-btn" aria-label="Đóng chat">✖️</button>
+            </div>
         </div>
     </div>
 
